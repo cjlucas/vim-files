@@ -5,7 +5,7 @@ map <C-n> :NERDTreeToggle<CR>
 set backspace=indent,eol,start " enable backspace in all situtations
 filetype plugin indent on " enable automatic indentation
 set number " enable number lines
-colorscheme base16-tomorrow " theme
+"colorscheme base16-tomorrow " theme
 let g:pydoc_use_drop=1
 
 " matching braces
