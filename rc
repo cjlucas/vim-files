@@ -9,6 +9,8 @@ colorscheme base16-tomorrow " theme
 set background=dark " background fix
 let g:pydoc_use_drop=1
 set softtabstop=4 shiftwidth=4 expandtab " use softtabs, length of 4 columns (should probably do this per-language)
+set cc=81 " color the 81st column
+
 
 " matching braces
 inoremap {      {}<Left>
