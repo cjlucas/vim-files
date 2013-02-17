@@ -22,3 +22,13 @@ inoremap (      ()<Left>
 inoremap (<CR>  (<CR>)<Esc>O
 inoremap ((     (
 inoremap ()     ()
+" matching quotations
+inoremap "      ""<Left>
+inoremap "<CR>  "<CR>"<Esc>O
+inoremap ""     ""
+" matching brackets
+inoremap [      []<Left>
+inoremap [<CR>  [<CR>]<Esc>O
+inoremap [[     [
+inoremap []     []
+
