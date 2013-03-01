@@ -16,26 +16,6 @@ set directory=~/.vim/swap/
 ""set wildmenu
 ""set wildmode=list:longest
 
-" matching braces
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-" matching parentheses
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>O
-inoremap ((     (
-inoremap ()     ()
-" matching quotations
-inoremap "      ""<Left>
-inoremap "<CR>  "<CR>"<Esc>O
-inoremap ""     ""
-" matching brackets
-inoremap [      []<Left>
-inoremap [<CR>  [<CR>]<Esc>O
-inoremap [[     [
-inoremap []     []
-
 " remap buffer nagivation to ctrl+up/down/left/right
 map <c-Down>    <c-W><Down>
 map <c-Up>      <c-W><Up>
