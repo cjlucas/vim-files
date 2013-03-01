@@ -1,7 +1,7 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 syntax on 
-nnoremap <silent> <F9> :TagbarToggle<CR>
+nnoremap <silent> <F9> :TlistToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 set backspace=indent,eol,start " enable backspace in all situtations
 filetype plugin indent on " enable automatic indentation
