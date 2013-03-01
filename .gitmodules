@@ -16,6 +16,3 @@
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = git://github.com/klen/python-mode.git
-[submodule "bundle/vim-python-ftplugin"]
-	path = bundle/vim-python-ftplugin
-	url = git://github.com/cjlucas/vim-python-ftplugin.git
