@@ -13,7 +13,7 @@ set softtabstop=4 shiftwidth=4 expandtab " use softtabs, length of 4 columns (sh
 set cc=81 " color the 81st column
 set backupdir=~/.vim/swap/ " centralize backups
 set directory=~/.vim/swap/
-""set wildmenu
+set wildmenu
 ""set wildmode=longest:full,full
 
 " matching braces
@@ -47,3 +47,8 @@ let g:pymode_lint_onfly = 0
 let g:pymode_folding = 0
 
 let g:pymode_rope = 0 " this will force the standard ropevim to load
+
+" fix for taglist on OSX, use brew version of ctags over system version
+if has("mac") && findfile("/usr/local/bin/ctags") != ""
+    let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+endif
