@@ -13,6 +13,7 @@ set softtabstop=4 shiftwidth=4 expandtab " use softtabs, length of 4 columns (sh
 set cc=81 " color the 81st column
 set backupdir=~/.vim/swap/ " centralize backups
 set directory=~/.vim/swap/
+let mapleader = ","
 ""set wildmenu
 ""set wildmode=list:longest
 
