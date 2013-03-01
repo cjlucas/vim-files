@@ -43,7 +43,7 @@ map <c-Left>    <c-W><Left>
 map <c-Right>   <c-W><Right>
 
 ""let g:pymode_doc = 1
-let g:pymode_lint_onfly = 1
+let g:pymode_lint_onfly = 0
 let g:pymode_folding = 0
-let g:pymode_rope_autoimport_modules = ["os","shutil","datetime", "os.path"]
-let g:pymode_rope_always_show_complete_menu = 1
+
+let g:pymode_rope = 0 " this will force the standard ropevim to load
