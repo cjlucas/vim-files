@@ -13,8 +13,8 @@ set softtabstop=4 shiftwidth=4 expandtab " use softtabs, length of 4 columns (sh
 set cc=81 " color the 81st column
 set backupdir=~/.vim/swap/ " centralize backups
 set directory=~/.vim/swap/
-set wildmenu
-""set wildmode=longest:full,full
+""set wildmenu
+""set wildmode=list:longest
 
 " matching braces
 inoremap {      {}<Left>
@@ -42,11 +42,20 @@ map <c-Up>      <c-W><Up>
 map <c-Left>    <c-W><Left>
 map <c-Right>   <c-W><Right>
 
-""let g:pymode_doc = 1
+" NERDTree options
+let NERDTreeDirArrows = 0 " old school
+
+" python-mode options
 let g:pymode_lint_onfly = 0
 let g:pymode_folding = 0
-
 let g:pymode_rope = 0 " this will force the standard ropevim to load
+
+" taglist options
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_WinWidth = 50
+let Tlist_Use_Right_Window = 1
+let Tlist_Display_Prototype = 0
+highlight link MyTagListFileName String
 
 " fix for taglist on OSX, use brew version of ctags over system version
 if has("mac") && findfile("/usr/local/bin/ctags") != ""
