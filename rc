@@ -26,6 +26,9 @@ map <c-Right>   <c-W><Right>
 " NERDTree options
 let NERDTreeDirArrows = 0 " old school
 
+" supertab options
+let g:SuperTabLongestHighlight = 1 " preselect first match
+
 " python-mode options
 let g:pymode_lint_onfly = 0
 let g:pymode_folding = 0
@@ -42,3 +45,4 @@ highlight link MyTagListFileName String
 if has("mac") && findfile("/usr/local/bin/ctags") != ""
     let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 endif
+
