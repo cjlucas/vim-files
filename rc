@@ -13,9 +13,19 @@ set softtabstop=4 shiftwidth=4 expandtab " use softtabs, length of 4 columns (sh
 set cc=81 " color the 81st column
 set backupdir=~/.vim/swap/ " centralize backups
 set directory=~/.vim/swap/
+set nocompatible " don't need vi compatibility
+set laststatus=2 " always show status line
+set encoding=utf-8 " utf-8 is good
 let mapleader = ","
+au BufWritePost .vimrc so ~/.vimrc " Automatically reload vimrc when it's saved
+
+" indent block of code in visual mode
+vnoremap <s-tab> <gv
+vnoremap <tab> >gv
 ""set wildmenu
 ""set wildmode=list:longest
+
+"py import ropevim
 
 " remap buffer nagivation to ctrl+up/down/left/right
 map <c-Down>    <c-W><Down>
@@ -45,4 +55,7 @@ highlight link MyTagListFileName String
 if has("mac") && findfile("/usr/local/bin/ctags") != ""
     let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 endif
+
+
+
 
