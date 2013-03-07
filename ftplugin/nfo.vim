@@ -1,4 +1,6 @@
 "disable tab completion
 inoremap <tab> <tab>
-
-call acp#disable() " disable autocompletion
+" disable autocomplete popup
+let g:neocomplcache_disable_auto_complete = 1
+"ASCII goodness
+silent edit ++enc=cp437
