@@ -31,3 +31,12 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule "bundle/hexHighlight"]
+	path = bundle/hexHighlight
+	url = git://github.com/yurifury/hexHighlight.git
+[submodule "bundle/vim-HiLinkTrace"]
+	path = bundle/vim-HiLinkTrace
+	url = git://github.com/gerw/vim-HiLinkTrace.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
