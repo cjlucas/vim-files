@@ -67,7 +67,7 @@ function! eclim#java#complete#CodeComplete(findstart, base)
 
     return start
   else
-    let offset = eclim#util#GetOffset() + len(a:base)
+    let offset = eclim#util#GetOffset()
     let project = eclim#project#util#GetCurrentProjectName()
     let file = eclim#lang#SilentUpdate(1, 0)
     if file == ''
@@ -80,7 +80,7 @@ function! eclim#java#complete#CodeComplete(findstart, base)
     let command = substitute(command, '<offset>', offset, '')
     let command = substitute(command, '<encoding>', eclim#util#GetEncoding(), '')
     let command = substitute(command, '<layout>', g:EclimJavaCompleteLayout, '')
-
+    
     let completions = []
     let response = eclim#ExecuteEclim(command)
     if type(response) != g:DICT_TYPE
@@ -99,7 +99,7 @@ function! eclim#java#complete#CodeComplete(findstart, base)
       " completion in the chain.
       return -1
     endif
-
+    
     if has_key(response, 'error') && len(response.completions) == 0
       call eclim#util#EchoError(response.error.message)
       return -1

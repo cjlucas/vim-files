@@ -1,37 +1,89 @@
 execute pathogen#infect()
 execute pathogen#helptags()
+
+" enable syntax highlight
 syntax on 
-nnoremap <silent> <F9> :TlistToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
-set backspace=indent,eol,start " enable backspace in all situtations
-filetype plugin indent on " enable automatic indentation
-set number " enable number lines
-colorscheme base16-tomorrow " theme
-set background=dark " background fix
-let g:pydoc_use_drop=1
-set softtabstop=4 shiftwidth=4 expandtab " use softtabs, length of 4 columns (should probably do this per-language)
-set cc=81 " color the 81st column
-set backupdir=~/.vim/swap/ " centralize backups
+" don't need vi compatibility
+set nocompatible 
+" enable backspace in all situtations
+set backspace=indent,eol,start
+" enable filetype-specific plugins and indentation
+filetype plugin indent on
+" enable number line
+set number
+" use softtabs, length of 4 columns (should probably do this per-language)
+set softtabstop=4 shiftwidth=4 expandtab 
+" color the 81st column
+set cc=81 
+" centralize backups
+set backupdir=~/.vim/swap/ 
 set directory=~/.vim/swap/
-set nocompatible " don't need vi compatibility
-set laststatus=2 " always show status line
-set encoding=utf-8 " utf-8 is good
+" always show status line (required by powerline)
+set laststatus=2 
+" also required by powerline
+set encoding=utf-8
+" Folding should be set manually, never automatically.
+set foldmethod=manual
+" Do not fold anything by default.
+set foldlevel=999
+" Allow modified/unsaved buffers in the background.
+set hidden
+" Highlight search results.
+set hlsearch
+" Searches are case-sensitive.
+set ignorecase
+" If run in a terminal, set the terminal title.
+set title
+
 let mapleader = ","
-au BufWritePost .vimrc so ~/.vimrc " Automatically reload vimrc when it's saved
+set background=dark
+colorscheme mine
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPINGS                                  
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " indent block of code in visual mode
 vnoremap <s-tab> <gv
 vnoremap <tab> >gv
-""set wildmenu
-""set wildmode=list:longest
 
-"py import ropevim
+" toggle taglist
+map <C-t> :TlistToggle<CR>
+" toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 " remap buffer nagivation to ctrl+up/down/left/right
 map <c-Down>    <c-W><Down>
 map <c-Up>      <c-W><Up>
 map <c-Left>    <c-W><Left>
 map <c-Right>   <c-W><Right>
+
+" neocomplcache mappings
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" toggle hex highlighting
+nmap <Leader>hh <Plug>HexHighlightToggle
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN SETTINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " NERDTree options
 let NERDTreeDirArrows = 0 " old school
@@ -81,29 +133,8 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'scheme' : $HOME.'/.gosh_completions'
     \ }
 
-" Define keyword, for minor languages
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
+" restrict omnicompletion triggering pattern, eclim completion is slow
+let g:neocomplcache_omni_patterns.java = '\.\w*'
