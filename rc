@@ -11,6 +11,8 @@ set backspace=indent,eol,start
 filetype plugin indent on
 " enable number line
 set number
+" highlight cursor line
+set cursorline
 " use softtabs, length of 4 columns (should probably do this per-language)
 set softtabstop=4 shiftwidth=4 expandtab 
 " color the 81st column
