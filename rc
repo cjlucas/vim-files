@@ -13,8 +13,11 @@ filetype plugin indent on
 set number
 " highlight cursor line
 set cursorline
-" use softtabs, length of 4 columns (should probably do this per-language)
-set softtabstop=4 shiftwidth=4 expandtab 
+" use spaces for tabs, length of 4 columns (should probably do this per-language)
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab 
 " color the 81st column
 set cc=81 
 " centralize backups
@@ -85,6 +88,9 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " auto align equals signs with Tabularize
 inoremap <silent> = =<Esc>:call <SID>ealign()<CR>a
+
+" binding for autoformat plugin
+nmap <Leader>af :Autoformat<CR><CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN SETTINGS
@@ -164,3 +170,19 @@ function! s:ealign()
   endif
 endfunction
 
+
+" vim-autoformat settings
+
+" don't let the plugin overwrite your tab settings
+let g:autoformat_no_default_shiftwidth=1
+
+let g:formatprg_c      = "astyle"
+let g:formatprg_args_c = "--mode=c --style=kr -p -H"
+
+let g:formatprg_java      = "astyle"
+let g:formatprg_args_java = "--mode=java --style=kr -p -H"
+" brew only
+if has("mac") && findfile("/usr/local/lib/python2.7/site-packages/autopep8.py") != ""
+    let g:formatprg_python = "/usr/local/lib/python2.7/site-packages/autopep8.py"
+endif
+let g:formatprg_args_python = "-"
