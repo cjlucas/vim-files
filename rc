@@ -144,6 +144,11 @@ endif
 " restrict omnicompletion triggering pattern, eclim completion is slow
 let g:neocomplcache_omni_patterns.java = '\.\w*'
 
+" use neocomplcache & clang_complete
+" add neocomplcache option
+let g:neocomplcache_force_overwrite_completefunc=1
+" add clang_complete option
+let g:clang_complete_auto=0
 
 " Tabularize settings
 
@@ -158,3 +163,4 @@ function! s:ealign()
     call search(repeat('[^=]*=',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
