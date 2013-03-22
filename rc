@@ -39,6 +39,8 @@ set hlsearch
 set ignorecase
 " If run in a terminal, set the terminal title.
 set title
+" align function params
+set cino=(0
 
 let mapleader = ","
 set background=dark
@@ -87,7 +89,7 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " auto align equals signs with Tabularize
-inoremap <silent> = =<Esc>:call <SID>ealign()<CR>a
+"inoremap <silent> = =<Esc>:call <SID>ealign()<CR>a
 
 " binding for autoformat plugin
 nmap <Leader>af :Autoformat<CR><CR>
@@ -176,8 +178,10 @@ endfunction
 " don't let the plugin overwrite your tab settings
 let g:autoformat_no_default_shiftwidth=1
 
-let g:formatprg_c      = "astyle"
-let g:formatprg_args_c = "--mode=c --style=kr -p -H"
+let g:formatprg_c      = "uncrustify"
+let g:formatprg_args_c = "-c ~/.vim/uncrustify_c.cfg -l C -q"
+let g:formatprg_cpp      = "uncrustify"
+let g:formatprg_args_cpp = "-c ~/.vim/uncrustify_c.cfg -l C -q"
 
 let g:formatprg_java      = "astyle"
 let g:formatprg_args_java = "--mode=java --style=kr -p -H"
