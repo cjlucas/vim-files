@@ -190,3 +190,9 @@ if has("mac") && findfile("/usr/local/lib/python2.7/site-packages/autopep8.py") 
     let g:formatprg_python = "/usr/local/lib/python2.7/site-packages/autopep8.py"
 endif
 let g:formatprg_args_python = "-"
+
+" syntastic settings
+let g:syntastic_c_checker = "gcc-4.8"
+let g:syntastic_c_compiler_options = '-std=c11'
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_c_check_header = 1
