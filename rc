@@ -179,17 +179,19 @@ endfunction
 let g:autoformat_no_default_shiftwidth=1
 
 let g:formatprg_c      = "uncrustify"
-let g:formatprg_args_c = "-c ~/.vim/uncrustify_c.cfg -l C -q"
+let g:formatprg_args_c = "-c ~/.vim/uncrustify.cfg -l C -q"
 let g:formatprg_cpp      = "uncrustify"
-let g:formatprg_args_cpp = "-c ~/.vim/uncrustify_c.cfg -l C -q"
+let g:formatprg_args_cpp = "-c ~/.vim/uncrustify.cfg -l C -q"
 
-let g:formatprg_java      = "astyle"
-let g:formatprg_args_java = "--mode=java --style=kr -p -H"
+let g:formatprg_java      = "uncrustify"
+let g:formatprg_args_java = "-c ~/.vim/uncrustify.cfg -l JAVA -q"
 " brew only
 if has("mac") && findfile("/usr/local/lib/python2.7/site-packages/autopep8.py") != ""
     let g:formatprg_python = "/usr/local/lib/python2.7/site-packages/autopep8.py"
 endif
 let g:formatprg_args_python = "-"
+
+autocmd BufWrite *.py,*.c,*.cpp,*.java Autoformat
 
 " syntastic settings
 let g:syntastic_c_checker = "gcc-4.8"
