@@ -44,7 +44,7 @@ set cino=(0
 
 let mapleader = ","
 set background=dark
-colorscheme mine
+colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS                                  
@@ -151,7 +151,12 @@ if !exists('g:neocomplcache_omni_patterns')
 endif
 " restrict omnicompletion triggering pattern, eclim completion is slow
 let g:neocomplcache_omni_patterns.java = '\.\w*'
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
+if !exists('g:neocomplcache_sources_list')
+    let g:neocomplcache_sources_list = {}
+endif
+"let g:neocomplcache_sources_list.ruby = ['buffer_complete', 'syntax_complete', 'omni_complete']
 " use neocomplcache & clang_complete
 " add neocomplcache option
 let g:neocomplcache_force_overwrite_completefunc=1
@@ -198,3 +203,4 @@ let g:syntastic_c_checker = "gcc-4.8"
 let g:syntastic_c_compiler_options = '-std=c11'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_c_check_header = 1
+"let g:syntastic_ruby_checker = 'rubocop'
