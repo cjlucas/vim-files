@@ -199,11 +199,20 @@ let g:formatprg_args_python = "-"
 autocmd BufWrite *.py,*.c,*.cpp,*.java Autoformat
 
 " syntastic settings
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_open = 1
+
 let g:syntastic_c_checker = "gcc-4.8"
 let g:syntastic_c_compiler_options = '-std=c11'
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_c_check_header = 1
-"let g:syntastic_ruby_checker = 'rubocop'
+
+"let g:syntastic_java_checkers = ['javac']
+"let g:syntastic_java_javac_classpath = '.classpath'
+"let g:syntastic_java_javac_executable = 'javac'
+"let g:syntastic_java_javac_config_file_enabled = 1
+
+let g:syntastic_ruby_checkers = ['mri']
 
 " easytag settings
 let g:easytags_dynamic_files = 1
