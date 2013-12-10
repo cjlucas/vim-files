@@ -24,7 +24,7 @@
 	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
+	url = git://github.com/wincent/Command-T.git
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
