@@ -94,6 +94,8 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " binding for autoformat plugin
 nmap <Leader>af :Autoformat<CR><CR>
 
+" For map overriding, see: .vim/after/map_override.vim
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
