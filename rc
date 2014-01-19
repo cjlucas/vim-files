@@ -219,3 +219,12 @@ let g:syntastic_ruby_checkers = ['mri']
 " easytag settings
 let g:easytags_dynamic_files = 1
 let g:easytags_events = ['BufWritePost']
+
+" vim-airline settings
+
+" don't use if on command line
+if !has('gui_running')
+    let g:loaded_airline = 1
+endif
+
+let g:airline_powerline_fonts = 1

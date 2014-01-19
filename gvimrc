@@ -1,7 +1,3 @@
-" font
-set guifont=Source\ Code\ Pro:h10
-" set width
+set guifont=Source\ Code\ Pro\ for\ Powerline:h10
 set columns=120
-
-"set height
 set lines=60
