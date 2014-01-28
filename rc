@@ -2,9 +2,9 @@ execute pathogen#infect()
 execute pathogen#helptags()
 
 " enable syntax highlight
-syntax on 
+syntax on
 " don't need vi compatibility
-set nocompatible 
+set nocompatible
 " enable backspace in all situtations
 set backspace=indent,eol,start
 " enable filetype-specific plugins and indentation
@@ -17,14 +17,14 @@ set cursorline
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab 
+set expandtab
 " color the 81st column
-set cc=81 
+set cc=81
 " centralize backups
-set backupdir=~/.vim/swap/ 
+set backupdir=~/.vim/swap/
 set directory=~/.vim/swap/
 " always show status line (required by powerline)
-set laststatus=2 
+set laststatus=2
 " also required by powerline
 set encoding=utf-8
 " Folding should be set manually, never automatically.
@@ -47,7 +47,7 @@ set background=dark
 colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MAPPINGS                                  
+" MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " indent block of code in visual mode
@@ -97,6 +97,21 @@ nmap <Leader>af :Autoformat<CR><CR>
 " For map overriding, see: .vim/after/map_override.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MISC                                                                       "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+:endfunction
+
+autocmd FileWritePre * :call TrimWhiteSpace()
+autocmd FileAppendPre * :call TrimWhiteSpace()
+autocmd FilterWritePre * :call TrimWhiteSpace()
+autocmd BufWritePre * :call TrimWhiteSpace()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -137,7 +152,7 @@ let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
 " Sets minimum char length of syntax keyword.
 let g:neocomplcache_min_syntax_length = 3
-" buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder 
+" buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " widen popup
 let g:neocomplcache_max_keyword_width = 60
@@ -193,10 +208,10 @@ let g:formatprg_args_cpp = "-c ~/.vim/uncrustify.cfg -l C -q"
 let g:formatprg_java      = "uncrustify"
 let g:formatprg_args_java = "-c ~/.vim/uncrustify.cfg -l JAVA -q"
 " brew only
-if has("mac") && findfile("/usr/local/lib/python2.7/site-packages/autopep8.py") != ""
-    let g:formatprg_python = "/usr/local/lib/python2.7/site-packages/autopep8.py"
-endif
-let g:formatprg_args_python = "-"
+"if has("mac") && findfile("/usr/local/lib/python2.7/site-packages/autopep8.py") != ""
+    "let g:formatprg_python = "/usr/local/lib/python2.7/site-packages/autopep8.py"
+"endif
+"let g:formatprg_args_python = "-"
 
 autocmd BufWrite *.py,*.c,*.cpp,*.java Autoformat
 
@@ -218,6 +233,7 @@ let g:syntastic_ruby_checkers = ['mri']
 
 " easytag settings
 let g:easytags_dynamic_files = 1
+let g:easytags_auto_highlight = 0
 let g:easytags_events = ['BufWritePost']
 
 " vim-airline settings
